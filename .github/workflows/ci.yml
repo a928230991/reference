@@ -53,13 +53,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
 
-      - name: Generate Changelog
-        id: changelog
-        uses: jaywcjlove/changelog-generator@main
-        with:
-          filter-author: (小弟调调™|\@github-actions-bot\@renovate-bot|dependabot|renovate\\[bot\\]|dependabot\\[bot\\]|Renovate Bot)
-          filter: (^[\s]+?[R|r]elease)|(^[R|r]elease)
-
       - name: Create Release
         uses: ncipollo/release-action@v1
         if: steps.create_tag.outputs.successful
