@@ -9,10 +9,10 @@ jobs:
     if: github.repository == 'a928230991/reference'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
 
       - run: npm install
       - run: npm run build
@@ -46,11 +46,60 @@ jobs:
           ```
           EOF
 
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          commit_message: ${{ github.event.head_commit.message }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
+      - name: Generate Changelog
+        id: changelog
+        uses: jaywcjlove/changelog-generator@main
+        with:
+          filter-author: (小弟调调™|\@github-actions-bot\@renovate-bot|dependabot|renovate\\[bot\\]|dependabot\\[bot\\]|Renovate Bot)
+          filter: (^[\s]+?[R|r]elease)|(^[R|r]elease)
+
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        if: steps.create_tag.outputs.successful
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: ${{ steps.create_tag.outputs.version }}
+          tag: ${{ steps.create_tag.outputs.version }}
+          body: |
+            [![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor) 
+            
+            Documentation ${{ steps.changelog.outputs.tag }}: https://raw.githack.com/jaywcjlove/reference/${{ steps.changelog.outputs.gh-pages-short-hash }}/index.html  
+            Comparing Changes: ${{ steps.changelog.outputs.compareurl }}  
+
+            ${{ steps.changelog.outputs.changelog }}
+
+            ## Docker
+            [![Docker Image Version (latest by date)](https://img.shields.io/docker/v/wcjiang/reference)](https://hub.docker.com/r/wcjiang/reference) [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/wcjiang/reference)](https://hub.docker.com/r/wcjiang/reference) [![Docker Pulls](https://img.shields.io/docker/pulls/wcjiang/reference)](https://hub.docker.com/r/wcjiang/reference)
+
+            轻松通过 `docker` 部署 `Quick Reference` 网站。
+
+            ```bash
+            docker pull wcjiang/reference
+            ```
+
+            ```bash
+            docker run --name reference --rm -d -p 9667:3000 wcjiang/reference:latest
+            # Or
+            docker run --name reference -itd -p 9667:3000 wcjiang/reference:latest
+            ```
+
+            在浏览器中访问以下 URL
+
+            ```bash
+            http://localhost:9667/
+            ```
 
       # Create Docker Image
-      - uses: docker/setup-buildx-action@v2
+      - uses: docker/setup-buildx-action@v3
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
