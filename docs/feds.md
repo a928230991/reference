@@ -77,6 +77,7 @@ JavaScript 测试工具
 CSS 工具
 ---
 
+[CSS大全](https://css-loaders.com/classic/)<!--rehype:target=_blank&style=background: rgb(106 106 106/var(\-\-bg\-opacity));-->
 [30秒CSS](https://www.30secondsofcode.org/css/)<!--rehype:target=_blank&style=background: rgb(106 106 106/var(\-\-bg\-opacity));-->
 [Autoprefixer](https://github.com/postcss/autoprefixer)<!--rehype:target=_blank&style=background: rgb(106 106 106/var(\-\-bg\-opacity));-->
 [ColorZilla](http://www.colorzilla.com/gradient-editor/)<!--rehype:target=_blank&style=background: rgb(106 106 106/var(\-\-bg\-opacity));-->
@@ -116,6 +117,12 @@ CSS 工具
 [RxJs](http://reactivex.io/rxjs/)<!--rehype:target=_blank&style=background: rgb(106 106 106/var(\-\-bg\-opacity));-->
 [htmx](https://htmx.org/)<!--rehype:target=_blank&style=background: rgb(61 114 215/var(\-\-bg\-opacity));-->
 <!--rehype:class=home-card-->
+
+JS交互库
+---
+
+[拖拽](https://drag-and-drop.formkit.com/)<!--rehype:target=_blank&style=background: rgb(97 218 251/var(\-\-bg\-opacity));-->
+[VUE文本截断展开收起](https://vue-clamp.vercel.app/?lang=zh)<!--rehype:target=_blank&style=background: rgb(97 218 251/var(\-\-bg\-opacity));-->
 
 在线代码编辑器工具
 ---
