@@ -4,7 +4,7 @@
   "description": "为开发人员分享快速参考备忘单(主要是方便自己)。",
   "author": "jaywcjlove",
   "license": "MIT",
-  "homepage": "https://jaywcjlove.github.io/reference",
+  "homepage": "https://a928230991.github.io/reference",
   "funding": "https://jaywcjlove.github.io/#/sponsor",
   "private": false,
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaywcjlove/reference.git"
+    "url": "https://github.com/a928230991/reference.git"
   },
   "bugs": {
     "url": "https://github.com/jaywcjlove/reference/issues"
