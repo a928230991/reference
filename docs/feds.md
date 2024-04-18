@@ -123,6 +123,13 @@ JS交互库
 
 [拖拽](https://drag-and-drop.formkit.com/)<!--rehype:target=_blank&style=background: rgb(97 218 251/var(\-\-bg\-opacity));-->
 [VUE文本截断展开收起](https://vue-clamp.vercel.app/?lang=zh)<!--rehype:target=_blank&style=background: rgb(97 218 251/var(\-\-bg\-opacity));-->
+<!--rehype:class=home-card-->
+
+资源库
+---
+
+[前端HTML模版](https://htmlrev.com/)<!--rehype:target=_blank&style=background: rgb(97 218 251/var(\-\-bg\-opacity));-->
+<!--rehype:class=home-card-->
 
 在线代码编辑器工具
 ---
